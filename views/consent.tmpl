@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SelfIop / Consent</title>
+</head>
+
+<body>
+
+<p>
+Application is requesting your permission to access your data.
+</p>
+
+<p>
+<ul>
+<li><b>Application URL:</b> {{client_id}}
+<li><b>Requested Data:</b>
+  <ul>
+    % for s in scope:
+    <li>{{s}}</li>
+    % end
+  </ul>
+</ul>
+</p>
+
+<p>
+<form action="/consent" method="post">
+<input type="submit" name="permit" value="permit">
+<input type="submit" name="deny" value="deny">
+</form>
+</p>
+
+</body>
+</html>
