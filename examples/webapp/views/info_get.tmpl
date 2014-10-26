@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Demo RP for Self-Issued OpenID Provider</title>
+</head>
+<body bgcolor="#FFFFD0">
+<h1>Demo RP for Self-Issued OpenID Provider</h1>
+<p>
+Claims in ID Token.
+<table border="1">
+<tr><th>claim</th><th>value</th><tr>
+%for k in sorted(id_token.keys()):
+    <tr><td>{{k}}</td><td>{{id_token[k]}}</td></tr>
+%end
+</table>
+</p>
+</body>
+</head>

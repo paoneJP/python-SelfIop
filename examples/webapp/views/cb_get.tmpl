@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>URI Fragment Handler</title>
+</head>
+<body onload="javascript:document.forms[0].submit();">
+<form method="post" action="{{url}}">
+<input id="qs" type="hidden" name="qs" value="">
+</form>
+<script type="text/javascript">
+<!--
+    document.getElementById('qs').value =
+        decodeURIComponent(location.hash.substring(1));
+-->
+</script>
+</form>
+</body>
+</html>

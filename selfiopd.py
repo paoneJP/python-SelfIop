@@ -110,6 +110,12 @@ def require_session(callback):
     return wrapper
 
 
+@get('/openid://')
+@get('/openid:///')  # Windows appends extra slash
+def protocol_handler():
+    bottle.redirect('/?'+request.query_string)
+
+
 @get('/')
 @get('/authorize')
 @no_cache
@@ -215,13 +221,14 @@ def issue_id_token(session):
     id_token = header + '.' + claims + '.' + sign
 
     # build response
+    redirect_uri = session.get('client_id')
     p = dict(id_token=id_token)
     s = session.get('state')
     if s:
         p.update(dict(state=s))
     q = urlencode(p)
 
-    bottle.redirect(aud+'#'+q)
+    bottle.redirect(redirect_uri+'#'+q)
 
 
 def run(**kwargs):

@@ -24,7 +24,7 @@ Simple implementation of something like a Self-Issued OpenID Providor.
 
 ## How to play it
 
-Starts SelfIop service.
+Start SelfIop service.
 
     $ python3 selfiopd.py
 
@@ -34,6 +34,16 @@ Access to following URL. (Send an authentication request to SelfIop)
         response_type=id_token
         &client_id=http%3A%2F%2Flocalhost%2Fcb
         &scope=openid
+
+
+## Examples
+
+ * Demo RP for Self-Issued OpenID Provider ([examples/webapp/](examples/webapp/))
+   - use for testing SelfIop.
+   - shows how to write RP.
+
+ * openid:// scheme handler registration file ([examples/win32registry/](examples/win32registry/))
+   - register your SelfIop running at http://localhost:8080/ as a openid:// scheme handler.
 
 
 ## Platform specific topics
@@ -78,5 +88,11 @@ This software is released under the MIT License, see LICENSE file.
 
 
 ## changelog
+
+ * release 2
+   - [new] Demo RP application.
+   - [new] openid:// scheme handling support code.
+   - [new] openid:// scheme handler registration file for windows.
+   - [modify] small code fixups.
 
  * first release
